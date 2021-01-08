@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
+    "domexception": "^2.0.1",
     "fetch-blob": "^2.1.1",
     "formdata-node": "^2.4.0",
     "node-fetch": "3.0.0-beta.9"
