@@ -21,7 +21,9 @@
     "./lib/es2015/utils/form-data.js": "./lib/es2015/utils/form-data.browser.js",
     "./lib/es2018/utils/form-data.js": "./lib/es2018/utils/form-data.browser.js",
     "./lib/es2015/utils/abort-controller.js": "./lib/es2015/utils/abort-controller.browser.js",
-    "./lib/es2018/utils/abort-controller.js": "./lib/es2018/utils/abort-controller.browser.js"
+    "./lib/es2018/utils/abort-controller.js": "./lib/es2018/utils/abort-controller.browser.js",
+    "./lib/es2015/utils/blob.js": "./lib/es2015/utils/blob.browser.js",
+    "./lib/es2018/utils/blob.js": "./lib/es2018/utils/blob.browser.js"
   },
   "repository": "git@github.com:BlackGlory/extra-fetch.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
@@ -65,6 +67,7 @@
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
+    "fetch-blob": "^2.1.1",
     "formdata-node": "^2.4.0",
     "node-fetch": "3.0.0-beta.9"
   }

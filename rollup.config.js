@@ -29,6 +29,7 @@ function createOptions({ directory, target }) {
       , { find: '@utils/response', replacement: '@utils/response.browser' }
       , { find: '@utils/form-data', replacement: '@utils/form-data.browser' }
       , { find: '@utils/abort-controller', replacement: '@utils/abort-controller.browser' }
+      , { find: '@utils/blob', replacement: '@utils/blob.browser' }
       ]
     })
   , typescript({ target })
