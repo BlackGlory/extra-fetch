@@ -18,3 +18,4 @@ yarn add extra-fetch
 - Response
 - FormData
 - AbortController
+- Blob
