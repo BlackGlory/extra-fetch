@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/BlackGlory/extra-fetch/compare/v0.1.4...v0.1.5) (2021-01-08)
+
+
+### Features
+
+* add Blob ([7731307](https://github.com/BlackGlory/extra-fetch/commit/77313074587be73dbe17cf8d396464cb504e1f31))
+
 ### [0.1.4](https://github.com/BlackGlory/extra-fetch/compare/v0.1.3...v0.1.4) (2021-01-08)
 
 ### [0.1.3](https://github.com/BlackGlory/extra-fetch/compare/v0.1.2...v0.1.3) (2021-01-08)
