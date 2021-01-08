@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/BlackGlory/extra-fetch/compare/v0.1.6...v0.1.7) (2021-01-08)
+
+
+### Bug Fixes
+
+* add domexception for fetch-blob in Node.js ([10f11e4](https://github.com/BlackGlory/extra-fetch/commit/10f11e4af19c4259266242cf57c247513261d0c2))
+
 ### [0.1.6](https://github.com/BlackGlory/extra-fetch/compare/v0.1.5...v0.1.6) (2021-01-08)
 
 ### [0.1.5](https://github.com/BlackGlory/extra-fetch/compare/v0.1.4...v0.1.5) (2021-01-08)
