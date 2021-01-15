@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/BlackGlory/extra-fetch/compare/v0.1.7...v0.1.8) (2021-01-15)
+
+
+### Bug Fixes
+
+* esm bundle ([e01f8ad](https://github.com/BlackGlory/extra-fetch/commit/e01f8ad8d5020b35af26373c7c0e8c09ffede00f))
+
 ### [0.1.7](https://github.com/BlackGlory/extra-fetch/compare/v0.1.6...v0.1.7) (2021-01-08)
 
 
