@@ -37,10 +37,10 @@ function createOptions({ directory, target }) {
       'Object.defineProperty(exports, "__esModule", { value: true });': ''
     , delimiters: ['\n', '\n']
     })
-  , typescript({ target })
-  , json()
   , resolve({ browser: true })
   , commonjs()
+  , json()
+  , typescript({ target })
   ]
 
   return [
