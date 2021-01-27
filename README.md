@@ -19,3 +19,4 @@ yarn add extra-fetch
 - FormData
 - AbortController
 - Blob
+- EventSource

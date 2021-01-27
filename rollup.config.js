@@ -31,6 +31,7 @@ function createOptions({ directory, target }) {
       , { find: '@utils/form-data', replacement: '@utils/form-data.browser' }
       , { find: '@utils/abort-controller', replacement: '@utils/abort-controller.browser' }
       , { find: '@utils/blob', replacement: '@utils/blob.browser' }
+      , { find: '@utils/event-source', replacement: '@utils/event-source.browser' }
       ]
     })
   , replace({
