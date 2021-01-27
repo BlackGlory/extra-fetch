@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/BlackGlory/extra-fetch/compare/v0.1.9...v0.1.10) (2021-01-27)
+
+
+### Features
+
+* add EventSource ([569e65e](https://github.com/BlackGlory/extra-fetch/commit/569e65e38ac5d3b150893ec823d5f7c3066931dd))
+
 ### [0.1.9](https://github.com/BlackGlory/extra-fetch/compare/v0.1.8...v0.1.9) (2021-01-20)
 
 ### [0.1.8](https://github.com/BlackGlory/extra-fetch/compare/v0.1.7...v0.1.8) (2021-01-15)
