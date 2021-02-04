@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/BlackGlory/extra-fetch/compare/v1.0.1...v1.0.2) (2021-02-04)
+
+
+### Bug Fixes
+
+* bundle ([0fa3f4a](https://github.com/BlackGlory/extra-fetch/commit/0fa3f4aa12116c23333d5b93f84a9c45a901f61a))
+
 ### [1.0.1](https://github.com/BlackGlory/extra-fetch/compare/v1.0.0...v1.0.1) (2021-02-03)
 
 ## [1.0.0](https://github.com/BlackGlory/extra-fetch/compare/v0.1.11...v1.0.0) (2021-02-02)
