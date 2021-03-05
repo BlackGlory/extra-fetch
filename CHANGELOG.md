@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/BlackGlory/extra-fetch/compare/v1.1.0...v1.2.0) (2021-03-05)
+
+
+### Features
+
+* support built-in AbortController in Node.js v15 ([0a8e72d](https://github.com/BlackGlory/extra-fetch/commit/0a8e72d3a2236d27417f3560362683b871a46384))
+
 ## [1.1.0](https://github.com/BlackGlory/extra-fetch/compare/v1.0.2...v1.1.0) (2021-03-04)
 
 
