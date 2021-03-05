@@ -1,3 +1,3 @@
-import { AbortController as AbortControllerNode } from 'abort-controller'
+import NodeAbortController from 'abort-controller'
 
-export const AbortController = AbortControllerNode as typeof globalThis.AbortController
+export const AbortController = globalThis.AbortController ?? NodeAbortController as typeof globalThis.AbortController
