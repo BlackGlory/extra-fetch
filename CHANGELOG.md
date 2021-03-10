@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/BlackGlory/extra-fetch/compare/v1.2.0...v1.3.0) (2021-03-10)
+
+
+### Features
+
+* node-fetch respect the keepalive option ([22bb1a7](https://github.com/BlackGlory/extra-fetch/commit/22bb1a79fa4f80e178569c686ae10c52d6c42865))
+
 ## [1.2.0](https://github.com/BlackGlory/extra-fetch/compare/v1.1.0...v1.2.0) (2021-03-05)
 
 
