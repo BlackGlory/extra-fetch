@@ -11,15 +11,11 @@ const httpsAgent = new https.Agent({ keepAlive: true })
 
 export function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
-  const nodeInit: NodeRequestInit = {
-    ...init as NodeRequestInit | undefined ?? {}
-  , agent(parsedURL) {
-      if (parsedURL.protocol == 'http:') {
-        return httpAgent
-      } else {
-        return httpsAgent
-      }
-    }
+  const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
+  if (init?.keepalive) {
+    nodeInit.agent = parsedURL => parsedURL.protocol == 'http:'
+                                  ? httpAgent
+                                  : httpsAgent
   }
 
   return nodeFetch(nodeInput, nodeInit) as unknown as Promise<Response>
