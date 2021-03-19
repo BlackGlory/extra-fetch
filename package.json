@@ -87,7 +87,7 @@
   "dependencies": {
     "abort-controller": "^3.0.0",
     "domexception": "^2.0.1",
-    "eventsource": "https://github.com/EventSource/eventsource#46fe04e03e54f4129a28bf75b3a1e5f4ab68b52a",
+    "eventsource": "^1.1.0",
     "fetch-blob": "^2.1.1",
     "formdata-node": "^2.4.0",
     "node-fetch": "3.0.0-beta.9"
