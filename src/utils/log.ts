@@ -23,6 +23,17 @@ export interface IResponseInfo {
   elapsed: number
 }
 
+export interface IFetchError {
+  id: string
+  timestamp: number
+  elapsed: number
+  error: Error
+}
+
+export function logFetchError({ id, timestamp, elapsed, error }: IFetchError): void {
+  console.error(`[${formatDate(timestamp)}] #${id} ${elapsed}ms`, error)
+}
+
 export function logRequestInfo({ id, timestamp, method, url }: IRequestInfo): void {
   console.info(`[${formatDate(timestamp)}] #${id} ${chalk.blue(method)} ${url}`)
 }

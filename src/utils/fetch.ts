@@ -12,10 +12,12 @@ import {
 , IResponseInfo
 , IRequestTrace
 , IResponseTrace
+, IFetchError
 , logRequestInfo
 , logResponseInfo
 , logRequestTrace
 , logResponseTrace
+, logFetchError
 } from './log'
 import { countup } from './countup'
 import { createLogger } from 'extra-logger'
@@ -51,13 +53,24 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
 
   // postfetch logging
   if (err) {
-    log.error(err)
+    log.error(collectFetchError, logFetchError)
     throw err
   }
   log.info(collectResponseInfo, logResponseInfo)
   log.trace(collectResponseTrace, logResponseTrace)
 
   return res!
+
+  function collectFetchError(): IFetchError {
+    const timestamp = Date.now()
+
+    return {
+      id
+    , timestamp
+    , elapsed: timestamp - startTime
+    , error: err!
+    }
+  }
 
   function collectRequestInfo(): IRequestInfo {
     return {
