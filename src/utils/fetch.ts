@@ -20,6 +20,7 @@ import {
 import { countup } from './countup'
 import { createLogger } from 'extra-logger'
 import { LEVEL } from './env'
+import 'core-js/es/object'
 
 const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
