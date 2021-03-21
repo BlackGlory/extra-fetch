@@ -337,7 +337,7 @@
   dependencies:
     "@blackglory/errors" "^1.1.2"
 
-"@blackglory/types@^0.4.0":
+"@blackglory/types@^0.4.0", "@blackglory/types@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-0.4.1.tgz#b21ff92779541d3087ae08025669647d720fa420"
   integrity sha512-UqERymArscOAlIxqJ7WBEM/MKnWRjyqyn2sIdXiBok/B9Bm5+75iWJFq1NiyDfF41eRI82/5Zo5Cw3sxOY6owQ==
@@ -2503,6 +2503,14 @@ extra-fetch@^1.3.0:
     formdata-node "^2.4.0"
     node-fetch "3.0.0-beta.9"
 
+extra-logger@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/extra-logger/-/extra-logger-0.2.1.tgz#6874bbe6c5c66d21bf7982d921205dc78c2f4f27"
+  integrity sha512-v9mEaYelqBJMdv4BIZRYFxNIU0xC66BTTzTXBQfT8UReNvjR/iszc60To4e1LvqQGL0exlAUl76kMDljIpkLVw==
+  dependencies:
+    "@blackglory/types" "^0.4.1"
+    hotypes "^0.1.4"
+
 extra-promise@^0.15.6:
   version "0.15.6"
   resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-0.15.6.tgz#8b219069f7e52bc871b7190e1462e84ced211bce"
@@ -3055,6 +3063,11 @@ hosted-git-info@^3.0.6:
   integrity sha512-aXpmwoOhRBrw6X3j0h5RloK4x1OzsxMPyxqIHyNfSe2pypkVTZFpEiRoSipPEPlMrh0HW/XsjkJ5WgnCirpNUw==
   dependencies:
     lru-cache "^6.0.0"
+
+hotypes@^0.1.3, hotypes@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/hotypes/-/hotypes-0.1.4.tgz#c5066f9db3447247418633cef3d2c955e19ac5df"
+  integrity sha512-6xl2Gwd/xTmgG1XKs3faY8bZ84w5bNkoqkakAnii7EiKr6Qpi5aCajYWU1IBIMX4m1HpfoeuKZ1RHmSPuKhi6Q==
 
 html-encoding-sniffer@^2.0.1:
   version "2.0.1"
@@ -5264,6 +5277,13 @@ return-style@^0.12.2:
   resolved "https://registry.yarnpkg.com/return-style/-/return-style-0.12.2.tgz#de5b56916fa0863b3db9d703018d6e9924116faa"
   integrity sha512-P9ABDJcqOrsYdUBXltxyO5Hs9avCeWbiKhy+5aQjn3KoEQ49HWOi50lmUj8iSlj5WpmTCnWzs9nbo1bVhDOvyA==
 
+return-style@^0.12.3:
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/return-style/-/return-style-0.12.3.tgz#a3d91ad82f20d48727e0aa50682db81f70fc715b"
+  integrity sha512-p1eGb1xSS1fjYs+mVdPmlOil1SfPLR3THy5C/w/1ghIC9EK9/hMMsTqeymOAWf1FuQmOt3HQAlyNG5ikDQth8g==
+  dependencies:
+    "@blackglory/go" "^0.1.0"
+
 reusify@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
@@ -6194,6 +6214,14 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+value-getter@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/value-getter/-/value-getter-0.1.13.tgz#f22ca221c323eb8b58160960a15441ddd085c189"
+  integrity sha512-w629ftR+6CAOm0BByF/BoGlQnCdcrPW74fW8VRbUqdPQDAk4uwE2nxZs4XZB9rhY0ZJ7mfNYYEzearvrSDbA2w==
+  dependencies:
+    "@blackglory/types" "^0.4.1"
+    hotypes "^0.1.3"
 
 verror@1.10.0:
   version "1.10.0"
