@@ -28,15 +28,22 @@ const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
 const log = createLogger<any>(LEVEL)
 
+function getCustomAgent(parsedURL: URL) {
+  return parsedURL.protocol == 'http:' ? httpAgent : httpsAgent
+}
+
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
   const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
 
-  // keepalive
+  // handle keepalive in RequstInfo
+  if (typeof input === 'object' && input.keepalive) {
+    nodeInit.agent = getCustomAgent
+  }
+
+  // handle keepalive in RequestInit
   if (init?.keepalive) {
-    nodeInit.agent = parsedURL => parsedURL.protocol == 'http:'
-                                  ? httpAgent
-                                  : httpsAgent
+    nodeInit.agent = getCustomAgent
   }
 
   // prefetch logging
