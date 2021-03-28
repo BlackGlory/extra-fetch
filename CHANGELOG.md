@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/BlackGlory/extra-fetch/compare/v1.5.0...v1.6.0) (2021-03-28)
+
+
+### Features
+
+* replace node-fetch with BlackGlory/node-fetch ([d890ccd](https://github.com/BlackGlory/extra-fetch/commit/d890ccded0a24726cf280099fc8d77d05e5ebd83))
+
 ## [1.5.0](https://github.com/BlackGlory/extra-fetch/compare/v1.4.1...v1.5.0) (2021-03-21)
 
 
