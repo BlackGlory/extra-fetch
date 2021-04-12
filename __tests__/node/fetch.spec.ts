@@ -1,5 +1,5 @@
 import { server } from './fetch.mock'
-import { fetch } from '@src/utils/fetch'
+import { fetch } from '@src/fetch'
 import '@blackglory/jest-matchers'
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))

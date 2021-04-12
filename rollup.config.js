@@ -24,14 +24,14 @@ function createOptions({ directory, target }) {
   const commonPlugins = [
     alias({
       entries: [
-        { find: '@utils/fetch', replacement: '@utils/fetch.browser' }
-      , { find: '@utils/headers', replacement: '@utils/headers.browser' }
-      , { find: '@utils/request', replacement: '@utils/request.browser' }
-      , { find: '@utils/response', replacement: '@utils/response.browser' }
-      , { find: '@utils/form-data', replacement: '@utils/form-data.browser' }
-      , { find: '@utils/abort-controller', replacement: '@utils/abort-controller.browser' }
-      , { find: '@utils/blob', replacement: '@utils/blob.browser' }
-      , { find: '@utils/event-source', replacement: '@utils/event-source.browser' }
+        { find: '@src/fetch', replacement: '@src/fetch.browser' }
+      , { find: '@src/headers', replacement: '@src/headers.browser' }
+      , { find: '@src/request', replacement: '@src/request.browser' }
+      , { find: '@src/response', replacement: '@src/response.browser' }
+      , { find: '@src/form-data', replacement: '@src/form-data.browser' }
+      , { find: '@src/abort-controller', replacement: '@src/abort-controller.browser' }
+      , { find: '@src/blob', replacement: '@src/blob.browser' }
+      , { find: '@src/event-source', replacement: '@src/event-source.browser' }
       ]
     })
   , replace({

@@ -1,4 +1,4 @@
-import { Request } from '@src/utils/request'
+import { Request } from '@src/request'
 
 describe('Request', () => {
   describe('keepalive', () => {
