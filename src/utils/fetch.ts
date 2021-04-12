@@ -26,7 +26,7 @@ import 'core-js/es/object'
 
 const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
-const log = createLogger<any>(LEVEL)
+const log = createLogger(LEVEL)
 
 function getCustomAgent(parsedURL: URL) {
   return parsedURL.protocol == 'http:' ? httpAgent : httpsAgent
