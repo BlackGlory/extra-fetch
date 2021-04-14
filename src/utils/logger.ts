@@ -37,7 +37,7 @@ function printMessage(
 ): (log: IMessageLog) => void {
   return ({ id, timestamp, elapsed, message }: IMessageLog) => {
     const pre = createPrefix({ timestamp, id, level })
-    const post = elapsed ? createPostfix({ elapsed }) : null
+    const post = isntUndefined(elapsed) ? createPostfix({ elapsed }) : null
 
     if (Array.isArray(message)) {
       let result = `${pre}`
@@ -62,14 +62,16 @@ function printError(
 ): (error: IErrorLog) => void {
   return ({ id, timestamp, elapsed, error }: IErrorLog) => {
     let result = createPrefix({ timestamp, id, level })
-    if (elapsed) result += ` ${createPostfix({ elapsed })}`
+    if (isntUndefined(elapsed)) {
+      result += ` ${createPostfix({ elapsed })}`
+    }
 
     log(result, error)
   }
 }
 
 function createPrefix({ level, timestamp, id }: IPrefix): string {
-  let result = `[${levelToString(level)}]`
+  let result = `[${levelToString(level).toUpperCase()}]`
   if (isntUndefined(timestamp)) {
     result += `[${formatDate(timestamp)}]`
   }
