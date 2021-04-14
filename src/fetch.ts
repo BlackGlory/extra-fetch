@@ -7,26 +7,19 @@ import {
 , Request as NodeRequest
 } from 'node-fetch'
 import { getErrorResultPromise } from 'return-style'
+import { logger } from '@utils/logger'
 import {
-  IRequestInfo
-, IResponseInfo
-, IRequestTrace
-, IResponseTrace
-, IFetchError
-, logRequestInfo
-, logResponseInfo
-, logRequestTrace
-, logResponseTrace
-, logFetchError
-} from '@utils/log'
+  createMessageLogFromRequest
+, createMessageLogFromResponse
+, createMessageLogFromRequestHeaders
+, createMessageLogFromResponseHeaders
+, createErrorLogFromError
+} from '@utils/log-creators'
 import { countup } from '@utils/countup'
-import { createLogger } from 'extra-logger'
-import { LEVEL } from '@utils/env'
 import 'core-js/es/object'
 
 const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
-const log = createLogger(LEVEL)
 
 function getCustomAgent(parsedURL: URL) {
   return parsedURL.protocol == 'http:' ? httpAgent : httpsAgent
@@ -46,12 +39,14 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
     nodeInit.agent = getCustomAgent
   }
 
-  // prefetch logging
-  const id = countup().toString()
   const req = new NodeRequest(nodeInput, nodeInit)
+
+  const id = countup().toString()
   const startTime = Date.now()
-  log.info(collectRequestInfo, logRequestInfo)
-  log.trace(collectRequestTrace, logRequestTrace)
+
+  // prefetch logging
+  logger.info(collectRequest, createMessageLogFromRequest)
+  logger.trace(collectRequestHeaders, createMessageLogFromRequestHeaders)
 
   // fetch
   const [err, res] = await getErrorResultPromise(
@@ -60,17 +55,16 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
 
   // postfetch logging
   if (err) {
-    log.error(collectFetchError, logFetchError)
+    logger.error(collectError, createErrorLogFromError)
     throw err
   }
-  log.info(collectResponseInfo, logResponseInfo)
-  log.trace(collectResponseTrace, logResponseTrace)
+  logger.info(collectResponse, createMessageLogFromResponse)
+  logger.trace(collectResponseHeaders, createMessageLogFromResponseHeaders)
 
   return res!
 
-  function collectFetchError(): IFetchError {
+  function collectError() {
     const timestamp = Date.now()
-
     return {
       id
     , timestamp
@@ -79,7 +73,7 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
     }
   }
 
-  function collectRequestInfo(): IRequestInfo {
+  function collectRequest() {
     return {
       id
     , timestamp: startTime
@@ -88,9 +82,8 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
     }
   }
 
-  function collectResponseInfo(): IResponseInfo {
+  function collectResponse() {
     const timestamp = Date.now()
-
     return {
       id
     , timestamp
@@ -100,15 +93,13 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
     }
   }
 
-  function collectRequestTrace(): IRequestTrace {
+  function collectRequestHeaders() {
     const headers = Object.fromEntries(req.headers.entries())
-
     return { headers }
   }
 
-  function collectResponseTrace(): IResponseTrace {
+  function collectResponseHeaders() {
     const headers = Object.fromEntries(res!.headers.entries())
-
     return { headers }
   }
 }
