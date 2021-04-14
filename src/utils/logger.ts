@@ -51,14 +51,14 @@ function printMessage(
       let result = `${pre} ${message}`
       if (post) result += ' ' + post
 
-      console.info(result)
+      log(result)
     }
   }
 }
 
 function printError(
   level: Level
-, log: typeof console.log
+, log: (...args: unknown[]) => void
 ): (error: IErrorLog) => void {
   return ({ id, timestamp, elapsed, error }: IErrorLog) => {
     let result = createPrefix({ timestamp, id, level })
