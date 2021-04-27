@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/BlackGlory/extra-fetch/compare/v1.7.0...v1.7.1) (2021-04-27)
+
+
+### Bug Fixes
+
+* formdata-node ([03d8bb0](https://github.com/BlackGlory/extra-fetch/commit/03d8bb0035030e8fe81b452ec8f56527b57d641a))
+
 ## [1.7.0](https://github.com/BlackGlory/extra-fetch/compare/v1.6.4...v1.7.0) (2021-04-14)
 
 
