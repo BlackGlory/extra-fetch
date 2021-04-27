@@ -1,3 +1,3 @@
-import FormDataNode from 'formdata-node'
+import { FormData as FormDataNode } from 'formdata-node'
 
 export const FormData = FormDataNode as unknown as typeof globalThis.FormData
