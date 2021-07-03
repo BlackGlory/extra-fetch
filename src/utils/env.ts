@@ -1,9 +1,10 @@
 import { Level } from 'extra-logger'
 import { ValueGetter } from 'value-getter'
+import { Getter } from 'justypes'
 
 const cache = new WeakMap()
 
-export const LEVEL = new ValueGetter(() => process.env.EXTRA_FETCH_LOG)
+export const LEVEL: Getter<Level> = new ValueGetter(() => process.env.EXTRA_FETCH_LOG)
   .convert(val => {
     if (val) {
       switch (val.toLowerCase()) {
