@@ -96,7 +96,7 @@
     "fetch-blob": "^2.1.2",
     "formdata-node": "^3.5.4",
     "justypes": "^0.1.5",
-    "node-fetch": "https://github.com/BlackGlory/node-fetch#master",
+    "node-fetch": "https://github.com/BlackGlory/node-fetch#cjs",
     "return-style": "^0.12.3",
     "value-getter": "^0.2.1"
   }
