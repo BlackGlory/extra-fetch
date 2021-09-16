@@ -1,11 +1,11 @@
 import * as http from 'http'
 import * as https from 'https'
-import nodeFetch from 'node-fetch'
+import nodeFetch from '@blackglory/node-fetch'
 import {
   RequestInfo as NodeRequestInfo
 , RequestInit as NodeRequestInit
 , Request as NodeRequest
-} from 'node-fetch'
+} from '@blackglory/node-fetch'
 import { getErrorResultPromise } from 'return-style'
 import { logger } from '@utils/logger'
 import {
