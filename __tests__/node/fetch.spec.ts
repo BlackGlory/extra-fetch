@@ -1,5 +1,8 @@
 import { server } from './fetch.mock'
 import { fetch } from '@src/fetch'
+import { AbortController } from '@src/abort-controller'
+import { AbortError } from '@src/abort-error'
+import { getErrorPromise } from 'return-style'
 import '@blackglory/jest-matchers'
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
@@ -28,6 +31,19 @@ describe('fetch', () => {
       expect(proResult).toMatchObject({
         method: 'DELETE'
       })
+    })
+  })
+
+  describe('AbortSignal', () => {
+    it('throw AbortError', async () => {
+      const controller = new AbortController()
+      controller.abort()
+
+      const err = await getErrorPromise(fetch('http://localhost', {
+        signal: controller.signal
+      }))
+
+      expect(err).toBeInstanceOf(AbortError)
     })
   })
 })

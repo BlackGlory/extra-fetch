@@ -18,6 +18,7 @@ yarn add extra-fetch
 - Response
 - FormData
 - AbortController
+- AbortError (as an alias for `DOMException` in the browser)
 - Blob
 - EventSource
 

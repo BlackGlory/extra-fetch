@@ -30,6 +30,7 @@ function createOptions({ directory, target }) {
       , { find: '@src/response', replacement: '@src/response.browser' }
       , { find: '@src/form-data', replacement: '@src/form-data.browser' }
       , { find: '@src/abort-controller', replacement: '@src/abort-controller.browser' }
+      , { find: '@src/abort-error', replacement: '@src/abort-error.browser' }
       , { find: '@src/blob', replacement: '@src/blob.browser' }
       , { find: '@src/event-source', replacement: '@src/event-source.browser' }
       ]

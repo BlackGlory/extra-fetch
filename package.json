@@ -22,6 +22,8 @@
     "./lib/es2018/form-data.js": "./lib/es2018/form-data.browser.js",
     "./lib/es2015/abort-controller.js": "./lib/es2015/abort-controller.browser.js",
     "./lib/es2018/abort-controller.js": "./lib/es2018/abort-controller.browser.js",
+    "./lib/es2015/abort-error.js": "./lib/es2015/abort-error.browser.js",
+    "./lib/es2018/abort-error.js": "./lib/es2018/abort-error.browser.js",
     "./lib/es2015/blob.js": "./lib/es2015/blob.browser.js",
     "./lib/es2018/blob.js": "./lib/es2018/blob.browser.js",
     "./lib/es2015/event-source.js": "./lib/es2015/event-source.browser.js",
