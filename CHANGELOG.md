@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/BlackGlory/extra-fetch/compare/v1.7.4...v1.8.0) (2021-10-06)
+
+
+### Features
+
+* add AbortError ([2d04faa](https://github.com/BlackGlory/extra-fetch/commit/2d04faa84497c929aa22753e37bbe0a8b3082499))
+
 ### [1.7.4](https://github.com/BlackGlory/extra-fetch/compare/v1.7.3...v1.7.4) (2021-09-16)
 
 ### [1.7.3](https://github.com/BlackGlory/extra-fetch/compare/v1.7.2...v1.7.3) (2021-09-16)
