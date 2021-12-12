@@ -89,7 +89,7 @@
   },
   "dependencies": {
     "@blackglory/node-fetch": "^1.0.0",
-    "@blackglory/types": "^0.5.1",
+    "@blackglory/types": "^0.5.2",
     "abort-controller": "^3.0.0",
     "chalk": "^4.1.2",
     "core-js": "^3.18.3",

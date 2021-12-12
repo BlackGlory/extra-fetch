@@ -1,6 +1,6 @@
 import { createLogger, Level } from 'extra-logger'
 import { LEVEL } from '@utils/env'
-import { isntUndefined } from '@blackglory/types'
+import { isArray, isntUndefined } from '@blackglory/types'
 
 export interface IMessageLog {
   id?: string
@@ -39,7 +39,7 @@ function printMessage(
     const pre = createPrefix({ timestamp, id, level })
     const post = isntUndefined(elapsed) ? createPostfix({ elapsed }) : null
 
-    if (Array.isArray(message)) {
+    if (isArray(message)) {
       let result = `${pre}`
       if (post) result += ' ' + post
 
