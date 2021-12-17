@@ -58,7 +58,7 @@
     }
   },
   "devDependencies": {
-    "@blackglory/jest-matchers": "^0.1.21",
+    "@blackglory/jest-matchers": "^0.2.1",
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@rollup/plugin-alias": "^3.1.8",
@@ -68,7 +68,7 @@
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/core-js": "^2.5.5",
-    "@types/eventsource": "^1.1.7",
+    "@types/eventsource": "^1.1.8",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
@@ -89,7 +89,7 @@
   },
   "dependencies": {
     "@blackglory/node-fetch": "^1.0.0",
-    "@blackglory/types": "^0.6.3",
+    "@blackglory/types": "^0.6.4",
     "abort-controller": "^3.0.0",
     "chalk": "^4.1.2",
     "core-js": "^3.20.0",
