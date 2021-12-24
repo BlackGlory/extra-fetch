@@ -93,7 +93,7 @@
     "abort-controller": "^3.0.0",
     "chalk": "^4.1.2",
     "core-js": "^3.20.0",
-    "domexception": "^2.0.1",
+    "domexception": "^4.0.0",
     "eventsource": "^1.1.0",
     "extra-logger": "^0.5.5",
     "fetch-blob": "^2.1.2",
