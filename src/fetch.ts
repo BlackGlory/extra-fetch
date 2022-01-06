@@ -16,7 +16,8 @@ import {
 , createErrorLogFromError
 } from '@utils/log-creators'
 import { countup } from '@utils/countup'
-import 'core-js/es/object'
+import fromPairs from 'lodash.frompairs'
+import { toArray } from 'iterable-operator'
 
 const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
@@ -94,12 +95,12 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
   }
 
   function collectRequestHeaders() {
-    const headers = Object.fromEntries(req.headers.entries())
+    const headers = fromPairs(toArray(req.headers.entries()))
     return { headers }
   }
 
   function collectResponseHeaders() {
-    const headers = Object.fromEntries(res!.headers.entries())
+    const headers = fromPairs(toArray(res!.headers.entries()))
     return { headers }
   }
 }

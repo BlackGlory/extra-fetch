@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2019"
+    "target": "ES2018"
   , "module": "CommonJS"
-  , "lib": ["DOM", "DOM.Iterable", "ES2019.Object"]
+  , "lib": ["DOM", "DOM.Iterable"]
   , "strict": true
   , "noUnusedLocals": true
   , "noUnusedParameters": false
