@@ -29,6 +29,7 @@
     "./lib/es2015/event-source.js": "./lib/es2015/event-source.browser.js",
     "./lib/es2018/event-source.js": "./lib/es2018/event-source.browser.js"
   },
+  "sideEffects": false,
   "repository": "git@github.com:BlackGlory/extra-fetch.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
