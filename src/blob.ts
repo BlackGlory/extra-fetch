@@ -1,3 +1,3 @@
-import BlobNode from 'fetch-blob'
+import { Blob as NodeBlob } from 'node:buffer'
 
-export const Blob = BlobNode as any as typeof globalThis.Blob
+export const Blob = NodeBlob as typeof globalThis.Blob

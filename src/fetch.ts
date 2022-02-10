@@ -1,11 +1,9 @@
-import * as http from 'http'
-import * as https from 'https'
-import nodeFetch from '@blackglory/node-fetch'
 import {
-  RequestInfo as NodeRequestInfo
+  fetch as nodeFetch
+, RequestInfo as NodeRequestInfo
 , RequestInit as NodeRequestInit
 , Request as NodeRequest
-} from '@blackglory/node-fetch'
+} from 'undici'
 import { getErrorResultPromise } from 'return-style'
 import { logger } from '@utils/logger'
 import {
@@ -19,26 +17,9 @@ import { countup } from '@utils/countup'
 import fromPairs from 'lodash.frompairs'
 import { toArray } from 'iterable-operator'
 
-const httpAgent = new http.Agent({ keepAlive: true })
-const httpsAgent = new https.Agent({ keepAlive: true })
-
-function getCustomAgent(parsedURL: URL) {
-  return parsedURL.protocol == 'http:' ? httpAgent : httpsAgent
-}
-
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
   const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
-
-  // handle keepalive in RequstInfo
-  if (typeof input === 'object' && input.keepalive) {
-    nodeInit.agent = getCustomAgent
-  }
-
-  // handle keepalive in RequestInit
-  if (init?.keepalive) {
-    nodeInit.agent = getCustomAgent
-  }
 
   const req = new NodeRequest(nodeInput, nodeInit)
 

@@ -1,18 +1,19 @@
-import { server } from './fetch.mock'
 import { fetch } from '@src/fetch'
 import { AbortController } from '@src/abort-controller'
-import { AbortError } from '@src/abort-error'
 import { getErrorPromise } from 'return-style'
+import { startService, stopService } from './utils'
 import '@blackglory/jest-matchers'
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
-beforeEach(() => server.resetHandlers())
-afterAll(() => server.close())
+let url: string
+beforeEach(async () => {
+  url = await startService()
+})
+afterEach(() => stopService())
 
 describe('fetch', () => {
   describe('without options', () => {
     it('works fine', async () => {
-      const result = fetch('http://localhost')
+      const result = fetch(url)
       const proResult = await result.then(res => res.json())
 
       expect(result).toBePromise()
@@ -24,7 +25,7 @@ describe('fetch', () => {
 
   describe('with options', () => {
     it('works fine', async () => {
-      const result = fetch('http://localhost', { method: 'DELETE' })
+      const result = fetch(url, { method: 'DELETE' })
       const proResult = await result.then(res => res.json())
 
       expect(result).toBePromise()
@@ -39,11 +40,11 @@ describe('fetch', () => {
       const controller = new AbortController()
       controller.abort()
 
-      const err = await getErrorPromise(fetch('http://localhost', {
+      const err = await getErrorPromise(fetch(url, {
         signal: controller.signal
       }))
 
-      expect(err).toBeInstanceOf(AbortError)
+      expect(err?.name).toBe('AbortError')
     })
   })
 })
