@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/BlackGlory/extra-fetch/compare/v1.8.5...v2.0.0) (2022-02-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* The minimal version is Node.js v16
+* Removed AbortError
+
+### Features
+
+* replace node-fetch with undici ([bb62b5e](https://github.com/BlackGlory/extra-fetch/commit/bb62b5e5adc0bceaaf66077b6872b1df4809fea1))
+
+
+* add engines field ([2ce71df](https://github.com/BlackGlory/extra-fetch/commit/2ce71df955230a1d5dc9671293d74c6c7e4e95e1))
+
 ### [1.8.5](https://github.com/BlackGlory/extra-fetch/compare/v1.8.4...v1.8.5) (2022-01-06)
 
 ### [1.8.4](https://github.com/BlackGlory/extra-fetch/compare/v1.8.3...v1.8.4) (2021-12-16)
