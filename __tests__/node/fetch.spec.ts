@@ -2,9 +2,10 @@ import { fetch } from '@src/fetch'
 import { AbortController } from '@src/abort-controller'
 import { getErrorPromise } from 'return-style'
 import { getAddress, startService, stopService } from './utils'
+import { buildServer } from './fetch.mock'
 import '@blackglory/jest-matchers'
 
-beforeEach(startService)
+beforeEach(() => startService(buildServer))
 afterEach(stopService)
 
 describe('fetch', () => {
