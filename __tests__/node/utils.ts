@@ -1,28 +1,31 @@
-import Hapi from '@hapi/hapi'
+import fastify from 'fastify'
 
-const server = Hapi.server()
+let server: ReturnType<typeof buildServer>
+let address: string
 
-server.route({
-  method: 'GET'
-, path: '/'
-, handler(request, h) {
-    return { method: 'GET' }
-  }
-})
-
-server.route({
-  method: 'DELETE'
-, path: '/'
-, handler(request, h) {
-    return { method: 'DELETE' }
-  }
-})
-
-export async function startService(): Promise<string> {
-  await server.start()
-  return server.info.uri
+export async function startService(): Promise<void> {
+  server = buildServer()
+  address = await server.listen(0)
 }
 
 export async function stopService(): Promise<void> {
-  await server.stop()
+  await server.close()
+}
+
+export function getAddress(): string {
+  return address
+}
+
+function buildServer() {
+  const server = fastify()
+
+  server.get('/', async (req, res) => {
+    return { method: 'GET' }
+  })
+
+  server.delete('/', async (req, res) => {
+    return { method: 'DELETE' }
+  })
+
+  return server
 }

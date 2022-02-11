@@ -1,19 +1,16 @@
 import { fetch } from '@src/fetch'
 import { AbortController } from '@src/abort-controller'
 import { getErrorPromise } from 'return-style'
-import { startService, stopService } from './utils'
+import { getAddress, startService, stopService } from './utils'
 import '@blackglory/jest-matchers'
 
-let url: string
-beforeEach(async () => {
-  url = await startService()
-})
-afterEach(() => stopService())
+beforeEach(startService)
+afterEach(stopService)
 
 describe('fetch', () => {
   describe('without options', () => {
     it('works fine', async () => {
-      const result = fetch(url)
+      const result = fetch(getAddress())
       const proResult = await result.then(res => res.json())
 
       expect(result).toBePromise()
@@ -25,7 +22,7 @@ describe('fetch', () => {
 
   describe('with options', () => {
     it('works fine', async () => {
-      const result = fetch(url, { method: 'DELETE' })
+      const result = fetch(getAddress(), { method: 'DELETE' })
       const proResult = await result.then(res => res.json())
 
       expect(result).toBePromise()
@@ -40,7 +37,7 @@ describe('fetch', () => {
       const controller = new AbortController()
       controller.abort()
 
-      const err = await getErrorPromise(fetch(url, {
+      const err = await getErrorPromise(fetch(getAddress(), {
         signal: controller.signal
       }))
 
