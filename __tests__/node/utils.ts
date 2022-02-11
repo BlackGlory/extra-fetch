@@ -1,29 +1,28 @@
-import { AddressInfo } from 'net'
-import { serve } from 'micri'
+import Hapi from '@hapi/hapi'
 
-const server = serve(async (req, res) => {
-  if (req.method === 'GET') {
+const server = Hapi.server()
+
+server.route({
+  method: 'GET'
+, path: '/'
+, handler(request, h) {
     return { method: 'GET' }
-  } else if (req.method === 'DELETE') {
+  }
+})
+
+server.route({
+  method: 'DELETE'
+, path: '/'
+, handler(request, h) {
     return { method: 'DELETE' }
   }
 })
 
-export function startService(): Promise<string> {
-  return new Promise<string>((resolve, reject) => server.listen(() => {
-    const addressInfo = server.address() as AddressInfo
-    const url = new URL('http://localhost')
-    url.host = addressInfo.address
-    url.port = addressInfo.port.toString()
-    resolve(url.toString())
-  }))
+export async function startService(): Promise<string> {
+  await server.start()
+  return server.info.uri
 }
 
-export function stopService(): Promise<void> {
-  return new Promise((resolve, reject) => {
-    server.close(err => {
-      if (err) return reject(err)
-      resolve()
-    })
-  })
+export async function stopService(): Promise<void> {
+  await server.stop()
 }
