@@ -4,84 +4,67 @@ import {
 , RequestInit as NodeRequestInit
 , Request as NodeRequest
 } from 'undici'
+import { LEVEL } from '@utils/env'
 import { getErrorResultPromise } from 'return-style'
-import { logger } from '@utils/logger'
-import {
-  createMessageLogFromRequest
-, createMessageLogFromResponse
-, createMessageLogFromRequestHeaders
-, createMessageLogFromResponseHeaders
-, createErrorLogFromError
-} from '@utils/log-creators'
-import { countup } from '@utils/countup'
+import { Logger, TerminalTransport } from 'extra-logger'
 import fromPairs from 'lodash.frompairs'
 import { toArray } from 'iterable-operator'
+import chalk from 'chalk'
+import { lazy } from 'extra-lazy'
+
+const getLogger = lazy(() => new Logger({
+  level: LEVEL()
+, transport: new TerminalTransport({})
+}))
 
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
+  const logger = getLogger()
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
   const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
 
   const req = new NodeRequest(nodeInput, nodeInit)
-
-  const id = countup().toString()
   const startTime = Date.now()
 
-  // prefetch logging
-  logger.info(collectRequest, createMessageLogFromRequest)
-  logger.trace(collectRequestHeaders, createMessageLogFromRequestHeaders)
+  logger.info(`${formatMethod(req.method)} ${req.url}`)
+  logger.trace(getRequestHeaders)
 
-  // fetch
-  const [err, res] = await getErrorResultPromise(
-    nodeFetch(req) as unknown as Promise<Response>
-  )
-
-  // postfetch logging
+  const [err, res] = await getErrorResultPromise(nodeFetch(req))
   if (err) {
-    logger.error(collectError, createErrorLogFromError)
+    logger.error(`${err}`)
     throw err
   }
-  logger.info(collectResponse, createMessageLogFromResponse)
-  logger.trace(collectResponseHeaders, createMessageLogFromResponseHeaders)
+  logger.info(`${formatStatusCode(res!.statusText, res!.status)}`, getElapsed(startTime))
+  logger.trace(getResponseHeaders)
 
-  return res!
+  return res as unknown as Response
 
-  function collectError() {
-    const timestamp = Date.now()
-    return {
-      id
-    , timestamp
-    , elapsed: timestamp - startTime
-    , error: err!
-    }
-  }
-
-  function collectRequest() {
-    return {
-      id
-    , timestamp: startTime
-    , method: req.method
-    , url: req.url
-    }
-  }
-
-  function collectResponse() {
-    const timestamp = Date.now()
-    return {
-      id
-    , timestamp
-    , code: res!.status
-    , status: res!.statusText
-    , elapsed: timestamp - startTime
-    }
-  }
-
-  function collectRequestHeaders() {
+  function getRequestHeaders() {
     const headers = fromPairs(toArray(req.headers.entries()))
-    return { headers }
+    const messages = Object.entries(headers)
+      .map(([name, value]) => `${chalk.cyan(name)}: ${value}`)
+    return messages.join('\n')
   }
 
-  function collectResponseHeaders() {
+  function getResponseHeaders() {
     const headers = fromPairs(toArray(res!.headers.entries()))
-    return { headers }
+    const messages = Object.entries(headers)
+      .map(([name, value]) => `${chalk.cyan(name)}: ${value}`)
+    return messages.join('\n')
   }
+}
+
+function formatMethod(method: string): string {
+  return chalk.blue(method)
+}
+
+function getElapsed(startTime: number): number {
+  return Date.now() - startTime
+}
+
+function formatStatusCode(status: string, code: number): string {
+  const text = `${code} ${status}`
+  if (code >= 200 && code < 300) return chalk.green(text)
+  if (code >= 400 && code < 500) return chalk.red(text)
+  if (code >= 500) return chalk.yellow(text)
+  return text
 }
