@@ -33,7 +33,7 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
     logger.error(`${err}`)
     throw err
   }
-  logger.info(`${formatStatusCode(res!.statusText, res!.status)}`, getElapsed(startTime))
+  logger.info(`${formatStatusCode(res.statusText, res.status)}`, getElapsed(startTime))
   logger.trace(getResponseHeaders)
 
   return res as unknown as Response
