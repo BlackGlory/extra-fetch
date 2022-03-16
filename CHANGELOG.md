@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/BlackGlory/extra-fetch/compare/v2.0.2...v3.0.0) (2022-03-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* It is an ESM now.
+
+* replace undici with node-fetch v3 ([1f08dd6](https://github.com/BlackGlory/extra-fetch/commit/1f08dd6fddfc0f88864d46c85c6b3f7660cd39e4))
+
 ### [2.0.2](https://github.com/BlackGlory/extra-fetch/compare/v2.0.1...v2.0.2) (2022-03-03)
 
 ### [2.0.1](https://github.com/BlackGlory/extra-fetch/compare/v2.0.0...v2.0.1) (2022-02-28)
