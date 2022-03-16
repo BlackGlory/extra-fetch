@@ -14,7 +14,6 @@ describe('fetch', () => {
       const result = fetch(getAddress())
       const proResult = await result.then(res => res.json())
 
-      expect(result).toBePromise()
       expect(proResult).toMatchObject({
         method: 'GET'
       })
@@ -26,7 +25,6 @@ describe('fetch', () => {
       const result = fetch(getAddress(), { method: 'DELETE' })
       const proResult = await result.then(res => res.json())
 
-      expect(result).toBePromise()
       expect(proResult).toMatchObject({
         method: 'DELETE'
       })

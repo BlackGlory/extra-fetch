@@ -1,0 +1,12 @@
+diff --git a/node_modules/node-fetch/src/request.js b/node_modules/node-fetch/src/request.js
+index a4d1b22..0fd6eba 100644
+--- a/node_modules/node-fetch/src/request.js
++++ b/node_modules/node-fetch/src/request.js
+@@ -135,6 +135,7 @@ export default class Request extends Body {
+ 		this.agent = init.agent || input.agent;
+ 		this.highWaterMark = init.highWaterMark || input.highWaterMark || 16384;
+ 		this.insecureHTTPParser = init.insecureHTTPParser || input.insecureHTTPParser || false;
++		this.keepalive = init.keepalive === undefined ? false : init.keepalive;
+ 
+ 		// §5.4, Request constructor steps, step 16.
+ 		// Default is empty string per https://fetch.spec.whatwg.org/#concept-request-referrer-policy

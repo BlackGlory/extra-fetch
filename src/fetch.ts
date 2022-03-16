@@ -1,16 +1,20 @@
-import {
-  fetch as nodeFetch
-, RequestInfo as NodeRequestInfo
+import * as http from 'http'
+import * as https from 'https'
+import nodeFetch, {
+  RequestInfo as NodeRequestInfo
 , RequestInit as NodeRequestInit
 , Request as NodeRequest
-} from 'undici'
-import { LEVEL } from '@utils/env'
+} from 'node-fetch'
+import { LEVEL } from '@utils/env.js'
 import { getErrorResultPromise } from 'return-style'
 import { Logger, TerminalTransport } from 'extra-logger'
 import fromPairs from 'lodash.frompairs'
-import { toArray } from 'iterable-operator'
 import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
+import { toArray, isObject } from '@blackglory/prelude'
+
+const httpAgent = new http.Agent({ keepAlive: true })
+const httpsAgent = new https.Agent({ keepAlive: true })
 
 const getLogger = lazy(() => new Logger({
   level: LEVEL()
@@ -21,6 +25,16 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
   const logger = getLogger()
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
   const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
+
+  // handle keepalive in RequstInfo
+  if (isObject(input) && input.keepalive) {
+    nodeInit.agent = getCustomAgent
+  }
+
+  // handle keepalive in RequestInit
+  if (init?.keepalive) {
+    nodeInit.agent = getCustomAgent
+  }
 
   const req = new NodeRequest(nodeInput, nodeInit)
   const startTime = Date.now()
@@ -67,4 +81,10 @@ function formatStatusCode(status: string, code: number): string {
   if (code >= 400 && code < 500) return chalk.red(text)
   if (code >= 500) return chalk.yellow(text)
   return text
+}
+
+function getCustomAgent(parsedURL: URL) {
+  return parsedURL.protocol == 'http:'
+       ? httpAgent
+       : httpsAgent
 }

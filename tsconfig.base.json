@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2018"
-  , "module": "CommonJS"
+  , "module": "ES2015"
+  , "moduleResolution": "node"
   , "lib": ["DOM", "DOM.Iterable"]
   , "strict": true
   , "noUnusedLocals": true
@@ -9,6 +10,10 @@
   , "experimentalDecorators": true
   , "emitDecoratorMetadata": false
   , "esModuleInterop": true
+  , "plugins": [
+      { "transform": "typescript-transform-paths" }
+    , { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   , "baseUrl": "."
   , "paths": {
       "@src/*": ["src/*"]
