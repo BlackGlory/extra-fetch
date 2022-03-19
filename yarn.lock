@@ -690,13 +690,21 @@
   resolved "https://registry.yarnpkg.com/@blackglory/errors/-/errors-1.1.2.tgz#0577f01ca13850049efa0dd729e1a26e77e1dc3a"
   integrity sha512-THXSkTUB5eXSn7Yj01TgizNqw2rRnkNj0t6drNtmGQNJRoh4qLdSD0WUiM6ClGgKTdaBJbAarRqG/6Gn/NjLig==
 
-"@blackglory/errors@^2.0.0", "@blackglory/errors@^2.1.0", "@blackglory/errors@^2.2.0":
+"@blackglory/errors@^2.0.0", "@blackglory/errors@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@blackglory/errors/-/errors-2.2.0.tgz#d1b3c9fe235c3fccd010c8081c3232ae2c94bd55"
   integrity sha512-AFICQhap/FNCAwySF+YbRsKpZIsWTjrwPdEQ2vVLbslsI+NDpMTwBu9R8o40y3OJ/3PcznLTc1r6GtfCv2z8YA==
   dependencies:
     "@blackglory/pass" "^0.1.0"
     iterable-operator "^0.14.5"
+
+"@blackglory/errors@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@blackglory/errors/-/errors-2.2.1.tgz#313af3a71a7c67bb043b48c7541794e44a5cf6a2"
+  integrity sha512-Wn4yVKq84cTLfDtwgOjex740eocotFMOvLFV56Ujt9fGRVvRW4dsdtRd+RcpNGxS2je1QSsNsNfc8uMDc4xDTg==
+  dependencies:
+    "@blackglory/pass" "^1.0.0"
+    iterable-operator "^1.0.0"
 
 "@blackglory/go@^0.1.0":
   version "0.1.0"
@@ -2689,16 +2697,16 @@ expect@^27.5.1:
     jest-matcher-utils "^27.5.1"
     jest-message-util "^27.5.1"
 
-extra-abort@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/extra-abort/-/extra-abort-0.1.1.tgz#7ea72249d8ec5ac47e114f1cdf607b51f70395a5"
-  integrity sha512-Sau7XBLGCCNFZKEqopgV9lQmiixRR6WbHObSSSbkbLz9n0dzDa7pLYkw50kOrUx99padIJBYAY14QyzevP5lFw==
+extra-abort@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/extra-abort/-/extra-abort-0.1.2.tgz#0efca4da3b4ae17159ea526cd76e5adb32233f37"
+  integrity sha512-XUx7cFQZtWrvi2Sa0cLVH1a7RrmAl7A0A0qpZ4JrMutsA+hEWYs6KcHptPkU74Nh2aAAYzU48Uq3WX3KX77lSg==
   dependencies:
-    "@blackglory/errors" "^2.1.0"
-    "@blackglory/types" "^0.6.5"
+    "@blackglory/errors" "^2.2.1"
+    "@blackglory/types" "^1.0.0"
     abort-controller "^3.0.0"
-    iterable-operator "^0.14.5"
-    justypes "^0.1.6"
+    iterable-operator "^1.0.0"
+    justypes "^2.0.0"
 
 extra-filesystem@^0.4.2:
   version "0.4.2"
@@ -5242,6 +5250,13 @@ return-style@^0.12.6:
   dependencies:
     "@blackglory/go" "^0.1.1"
     "@blackglory/pass" "^0.1.0"
+
+return-style@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/return-style/-/return-style-1.0.0.tgz#ea0866c0b26437df478f87cb62338c87b5db2ebb"
+  integrity sha512-Z6t837vg5m8raWyUlioQ5SY7wrbx2hXuzSVnb4zcf5D6fY7lmH6zTyLeuknWtyONWGnCDyTSfJrwpgjFtWrMOQ==
+  dependencies:
+    "@blackglory/prelude" "^0.1.0"
 
 reusify@^1.0.4:
   version "1.0.4"
