@@ -8,7 +8,7 @@ import nodeFetch, {
 import { LEVEL } from '@utils/env.js'
 import { getErrorResultPromise } from 'return-style'
 import { Logger, TerminalTransport } from 'extra-logger'
-import fromPairs from 'lodash.frompairs'
+import fromPairs from 'lodash/fromPairs'
 import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
 import { toArray, isObject } from '@blackglory/prelude'
