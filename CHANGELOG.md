@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/BlackGlory/extra-fetch/compare/v3.0.2...v3.0.3) (2022-03-23)
+
+
+### Bug Fixes
+
+* import ([d0ddc5b](https://github.com/BlackGlory/extra-fetch/commit/d0ddc5bde30d6740e7bc305a2750f40d088909dd))
+
 ### [3.0.2](https://github.com/BlackGlory/extra-fetch/compare/v3.0.1...v3.0.2) (2022-03-23)
 
 ### [3.0.1](https://github.com/BlackGlory/extra-fetch/compare/v3.0.0...v3.0.1) (2022-03-19)
