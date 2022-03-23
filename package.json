@@ -54,8 +54,8 @@
     "@types/jest": "^27.4.1",
     "@types/lodash.frompairs": "^4.0.6",
     "@types/node": "16",
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "@typescript-eslint/parser": "^5.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.11.0",
     "extra-filesystem": "^0.4.2",
@@ -74,18 +74,18 @@
   },
   "dependencies": {
     "@blackglory/prelude": "^0.1.0",
-    "@blackglory/types": "^1.0.0",
+    "@blackglory/types": "^1.0.1",
     "chalk": "^4.1.2",
     "eventsource": "^2.0.0",
     "extra-abort": "^0.1.2",
     "extra-lazy": "^1.0.0",
-    "extra-logger": "^0.6.4",
+    "extra-logger": "^0.6.5",
     "justypes": "^2.0.0",
     "lodash.frompairs": "^4.0.1",
     "node-fetch": "^3.2.3",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "return-style": "^1.0.0",
-    "value-getter": "^0.2.2"
+    "value-getter": "^0.2.3"
   }
 }
