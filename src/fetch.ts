@@ -13,9 +13,8 @@ import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
 import { toArray, isObject } from '@blackglory/prelude'
 
-const httpAgent = new http.Agent({ keepAlive: true })
-const httpsAgent = new https.Agent({ keepAlive: true })
-
+const getHTTPAgent = lazy(() => new http.Agent({ keepAlive: true }))
+const getHTTPSAgent = lazy(() => new https.Agent({ keepAlive: true }))
 const getLogger = lazy(() => new Logger({
   level: LEVEL()
 , transport: new TerminalTransport({})
@@ -85,6 +84,6 @@ function formatStatusCode(status: string, code: number): string {
 
 function getCustomAgent(parsedURL: URL) {
   return parsedURL.protocol == 'http:'
-       ? httpAgent
-       : httpsAgent
+       ? getHTTPAgent()
+       : getHTTPSAgent()
 }
