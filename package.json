@@ -29,7 +29,6 @@
   "license": "MIT",
   "scripts": {
     "prepare": "ts-patch install -s",
-    "postinstall": "patch-package",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --no-cache --config jest.config.js",
     "test:debug": "cross-env NODE_OPTIONS=--experimental-vm-modules node --inspect-brk node_modules/.bin/jest --runInBand",
@@ -41,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s prepare lint test build",
+      "pre-commit": "run-s prepare lint build test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -73,6 +72,7 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "dependencies": {
+    "@blackglory/node-fetch": "^2.0.0",
     "@blackglory/prelude": "^0.1.1",
     "@blackglory/types": "^1.1.0",
     "chalk": "^4.1.2",
@@ -82,8 +82,6 @@
     "extra-logger": "^0.6.8",
     "justypes": "^2.0.0",
     "lodash": "^4.17.21",
-    "node-fetch": "3.2.4",
-    "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "return-style": "^1.0.0",
     "value-getter": "^0.2.3"
