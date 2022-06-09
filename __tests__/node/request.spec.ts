@@ -1,4 +1,4 @@
-import { Request } from '@src/request'
+import { Request } from '@src/request.js'
 
 describe('Request', () => {
   describe('keepalive', () => {
