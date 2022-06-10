@@ -1,4 +1,4 @@
-import fastify from 'fastify'
+import { fastify } from 'fastify'
 
 export function buildServer() {
   const server = fastify()
