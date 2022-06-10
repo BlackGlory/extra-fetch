@@ -14,9 +14,7 @@ describe('fetch', () => {
       const result = fetch(getAddress())
       const proResult = await result.then(res => res.json())
 
-      expect(proResult).toMatchObject({
-        method: 'GET'
-      })
+      expect(proResult).toStrictEqual({ method: 'GET' })
     })
   })
 
@@ -25,9 +23,7 @@ describe('fetch', () => {
       const result = fetch(getAddress(), { method: 'DELETE' })
       const proResult = await result.then(res => res.json())
 
-      expect(proResult).toMatchObject({
-        method: 'DELETE'
-      })
+      expect(proResult).toStrictEqual({ method: 'DELETE' })
     })
   })
 
