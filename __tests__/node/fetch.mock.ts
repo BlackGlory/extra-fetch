@@ -4,11 +4,11 @@ export function buildServer() {
   const server = fastify()
 
   server.get('/', async (req, reply) => {
-    return reply.send({ method: 'GET' })
+    reply.send({ method: 'GET' })
   })
 
   server.delete('/', async (req, reply) => {
-    return reply.send({ method: 'DELETE' })
+    reply.send({ method: 'DELETE' })
   })
 
   return server
