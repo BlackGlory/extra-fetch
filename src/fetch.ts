@@ -11,7 +11,7 @@ import { Logger, TerminalTransport } from 'extra-logger'
 import fromPairs from 'lodash/fromPairs.js'
 import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
-import { toArray, isObject } from '@blackglory/prelude'
+import { toArray } from '@blackglory/prelude'
 
 const getHTTPAgent = lazy(() => new http.Agent({ keepAlive: true }))
 const getHTTPSAgent = lazy(() => new https.Agent({ keepAlive: true }))
@@ -24,16 +24,7 @@ export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Res
   const logger = getLogger()
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
   const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
-
-  // handle keepalive in RequstInfo
-  if (isObject(input) && input.keepalive) {
-    nodeInit.agent = getCustomAgent
-  }
-
-  // handle keepalive in RequestInit
-  if (init?.keepalive) {
-    nodeInit.agent = getCustomAgent
-  }
+  nodeInit.agent = getCustomAgent
 
   const req = new NodeRequest(nodeInput, nodeInit)
   const startTime = Date.now()

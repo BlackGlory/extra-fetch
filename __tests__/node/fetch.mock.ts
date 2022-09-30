@@ -1,13 +1,15 @@
 import { fastify } from 'fastify'
 
 export function buildServer() {
-  const server = fastify()
+  const server = fastify({
+    keepAliveTimeout: 1000 // 因为设置为0和undefined都没用, 所以设置成1秒
+  })
 
-  server.get('/', async (req, reply) => {
+  server.get('/', (req, reply) => {
     reply.send({ method: 'GET' })
   })
 
-  server.delete('/', async (req, reply) => {
+  server.delete('/', (req, reply) => {
     reply.send({ method: 'DELETE' })
   })
 
