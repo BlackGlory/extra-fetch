@@ -11,7 +11,7 @@ import { Logger, TerminalTransport } from 'extra-logger'
 import fromPairs from 'lodash/fromPairs'
 import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
-import { toArray, isObject } from '@blackglory/prelude'
+import { toArray } from '@blackglory/prelude'
 
 const httpAgent = new http.Agent({ keepAlive: true })
 const httpsAgent = new https.Agent({ keepAlive: true })
@@ -24,16 +24,9 @@ const getLogger = lazy(() => new Logger({
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const logger = getLogger()
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
-  const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
-
-  // handle keepalive in RequstInfo
-  if (isObject(input) && input.keepalive) {
-    nodeInit.agent = getCustomAgent
-  }
-
-  // handle keepalive in RequestInit
-  if (init?.keepalive) {
-    nodeInit.agent = getCustomAgent
+  const nodeInit: NodeRequestInit = {
+    ...(init as NodeRequestInit | undefined ?? {})
+  , agent: getCustomAgent
   }
 
   const req = new NodeRequest(nodeInput, nodeInit)
