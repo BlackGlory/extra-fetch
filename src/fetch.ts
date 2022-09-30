@@ -23,8 +23,10 @@ const getLogger = lazy(() => new Logger({
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const logger = getLogger()
   const nodeInput: NodeRequestInfo = input as NodeRequestInfo
-  const nodeInit: NodeRequestInit = init as NodeRequestInit | undefined ?? {}
-  nodeInit.agent = getCustomAgent
+  const nodeInit: NodeRequestInit = {
+    ...(init as NodeRequestInit | undefined ?? {})
+  , agent: getCustomAgent
+  }
 
   const req = new NodeRequest(nodeInput, nodeInit)
   const startTime = Date.now()
