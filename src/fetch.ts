@@ -4,7 +4,7 @@ import nodeFetch, {
   RequestInfo as NodeRequestInfo
 , RequestInit as NodeRequestInit
 , Request as NodeRequest
-} from '@blackglory/node-fetch'
+} from 'node-fetch'
 import { LEVEL } from '@utils/env.js'
 import { getErrorResultPromise } from 'return-style'
 import { Logger, TerminalTransport } from 'extra-logger'

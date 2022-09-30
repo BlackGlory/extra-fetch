@@ -1,3 +1,3 @@
-import { Headers as HeadersNode } from '@blackglory/node-fetch'
+import { Headers as HeadersNode } from 'node-fetch'
 
 export const Headers = HeadersNode as typeof globalThis.Headers
