@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/BlackGlory/extra-fetch/compare/v3.0.6...v4.0.0) (2022-09-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removed `Request#keepalive` from Node.js
+
+### Features
+
+* always enable keepalive for node-fetch ([a371885](https://github.com/BlackGlory/extra-fetch/commit/a371885e159fc59c2d36080cc8bfa5b160fe6cc6))
+
+
+* replace @blackglory/node-fetch with node-fetch ([60483f2](https://github.com/BlackGlory/extra-fetch/commit/60483f25232e84fa3a2b383a17f9c307e0c86580))
+
 ### [3.0.6](https://github.com/BlackGlory/extra-fetch/compare/v3.0.5...v3.0.6) (2022-05-03)
 
 ### [3.0.5](https://github.com/BlackGlory/extra-fetch/compare/v3.0.4...v3.0.5) (2022-05-03)
