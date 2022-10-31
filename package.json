@@ -95,6 +95,7 @@
     "chalk": "^4.1.2",
     "domexception": "^2.0.1",
     "eventsource": "^2.0.2",
+    "extra-abort": "^0.1.4",
     "extra-logger": "^0.6.9",
     "fetch-blob": "^2.1.2",
     "formdata-node": "^3.5.4",

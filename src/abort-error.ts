@@ -1,1 +1,1 @@
-export { AbortError } from '@blackglory/node-fetch'
+export { AbortError } from 'extra-abort'
