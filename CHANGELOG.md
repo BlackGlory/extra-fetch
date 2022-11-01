@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/BlackGlory/extra-fetch/compare/v1.9.1...v1.9.2) (2022-11-01)
+
+
+### Bug Fixes
+
+* export `AbortController` ([1ce5ab9](https://github.com/BlackGlory/extra-fetch/commit/1ce5ab9319588be051e7877848193612c89cdd85))
+
 ### [1.9.1](https://github.com/BlackGlory/extra-fetch/compare/v1.9.0...v1.9.1) (2022-10-31)
 
 ## [1.9.0](https://github.com/BlackGlory/extra-fetch/compare/v1.8.6...v1.9.0) (2022-09-30)
