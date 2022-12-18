@@ -3,7 +3,6 @@ import { AbortController } from '@src/abort-controller.js'
 import { getErrorPromise } from 'return-style'
 import { getAddress, startService, stopService } from './utils.js'
 import { buildServer } from './fetch.mock.js'
-import '@blackglory/jest-matchers'
 
 beforeEach(() => startService(buildServer))
 afterEach(stopService)
