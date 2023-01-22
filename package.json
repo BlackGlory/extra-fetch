@@ -71,7 +71,6 @@
   },
   "dependencies": {
     "@blackglory/prelude": "^0.3.0",
-    "@blackglory/types": "^1.4.0",
     "chalk": "^5.2.0",
     "eventsource": "^2.0.2",
     "extra-abort": "^0.3.0",
