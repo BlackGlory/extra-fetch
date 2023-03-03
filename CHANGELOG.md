@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.3](https://github.com/BlackGlory/extra-fetch/compare/v1.9.2...v1.9.3) (2023-03-03)
+
+
+### Bug Fixes
+
+* add missing dependencies ([1b3f20b](https://github.com/BlackGlory/extra-fetch/commit/1b3f20b64457d1a35acb2f34b59eea4678c07f81))
+
 ### [1.9.2](https://github.com/BlackGlory/extra-fetch/compare/v1.9.1...v1.9.2) (2022-11-01)
 
 
