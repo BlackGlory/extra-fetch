@@ -5,7 +5,7 @@
   "keywords": [],
   "files": [
     "lib",
-    "dist"
+    "src"
   ],
   "type": "module",
   "engines": {
