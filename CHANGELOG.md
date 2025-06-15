@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/BlackGlory/extra-fetch/compare/v5.0.0...v5.0.1) (2025-06-15)
+
+
+### Bug Fixes
+
+* **form-data:** types ([6416cda](https://github.com/BlackGlory/extra-fetch/commit/6416cda210a37f94ee83983109fb561cd6f53b72))
+
 ## [5.0.0](https://github.com/BlackGlory/extra-fetch/compare/v4.0.7...v5.0.0) (2025-06-15)
 
 
