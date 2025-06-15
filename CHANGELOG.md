@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/BlackGlory/extra-fetch/compare/v4.0.7...v5.0.0) (2025-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js v16 => Node.js v22
+
+* replace `node-fetch` with `undici` ([3f09958](https://github.com/BlackGlory/extra-fetch/commit/3f09958a164b237c75dc7a6f4ba1366f973b8a18))
+
 ### [4.0.7](https://github.com/BlackGlory/extra-fetch/compare/v4.0.6...v4.0.7) (2023-06-10)
 
 
