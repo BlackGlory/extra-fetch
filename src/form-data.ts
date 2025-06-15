@@ -1,3 +1,3 @@
-import { FormData as NodeFormData } from 'node-fetch'
+import { FormData as undiciFormData } from 'undici'
 
-export const FormData = NodeFormData as typeof globalThis.FormData
+export const FormData = undiciFormData as unknown as globalThis.FormData

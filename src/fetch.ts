@@ -1,10 +1,10 @@
-import * as http from 'http'
-import * as https from 'https'
-import nodeFetch, {
-  RequestInfo as NodeRequestInfo
-, RequestInit as NodeRequestInit
-, Request as NodeRequest
-} from 'node-fetch'
+import {
+  fetch as undiciFetch
+, RequestInfo as UndiciRequestInfo
+, RequestInit as UndiciRequestInit
+, Request as UndiciRequest
+, Agent
+} from 'undici'
 import { LEVEL } from '@utils/env.js'
 import { getErrorResultPromise } from 'return-style'
 import { Logger, TerminalTransport } from 'extra-logger'
@@ -13,28 +13,28 @@ import chalk from 'chalk'
 import { lazy } from 'extra-lazy'
 import { toArray } from '@blackglory/prelude'
 
-const getHTTPAgent = lazy(() => new http.Agent({ keepAlive: true }))
-const getHTTPSAgent = lazy(() => new https.Agent({ keepAlive: true }))
 const getLogger = lazy(() => new Logger({
   level: LEVEL()
 , transport: new TerminalTransport({})
 }))
+const getAgent = lazy(() => new Agent({ allowH2: true }))
 
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const logger = getLogger()
-  const nodeInput: NodeRequestInfo = input as NodeRequestInfo
-  const nodeInit: NodeRequestInit = {
-    ...(init as NodeRequestInit | undefined ?? {})
-  , agent: getCustomAgent
+
+  const undiciRequestInput: UndiciRequestInfo = input as UndiciRequestInfo
+  const undiciRequestInit: UndiciRequestInit = {
+    ...(init as UndiciRequestInit | undefined ?? {})
+  , dispatcher: getAgent()
   }
 
-  const req = new NodeRequest(nodeInput, nodeInit)
+  const req = new UndiciRequest(undiciRequestInput, undiciRequestInit)
   const startTime = Date.now()
 
   logger.info(`${formatMethod(req.method)} ${req.url}`)
   logger.trace(getRequestHeaders)
 
-  const [err, res] = await getErrorResultPromise(nodeFetch(req))
+  const [err, res] = await getErrorResultPromise(undiciFetch(req))
   if (err) {
     logger.error(`${err}`)
     throw err
@@ -73,10 +73,4 @@ function formatStatusCode(status: string, code: number): string {
   if (code >= 400 && code < 500) return chalk.red(text)
   if (code >= 500) return chalk.yellow(text)
   return text
-}
-
-function getCustomAgent(parsedURL: URL) {
-  return parsedURL.protocol == 'http:'
-       ? getHTTPAgent()
-       : getHTTPSAgent()
 }

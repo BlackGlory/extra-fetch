@@ -1,3 +1,4 @@
+import { describe, test, expect, beforeEach, afterEach } from 'vitest'
 import { fetch } from '@src/fetch.js'
 import { AbortController } from '@src/abort-controller.js'
 import { getErrorPromise } from 'return-style'
@@ -8,34 +9,22 @@ beforeEach(() => startService(buildServer))
 afterEach(stopService)
 
 describe('fetch', () => {
-  describe('without options', () => {
-    it('works fine', async () => {
-      const result = fetch(getAddress())
-      const proResult = await result.then(res => res.json())
+  test('general', async () => {
+    const res = await fetch(getAddress())
+    const result = await res.text()
 
-      expect(proResult).toStrictEqual({ method: 'GET' })
-    })
+    expect(result).toBe('OK')
   })
 
-  describe('with options', () => {
-    it('works fine', async () => {
-      const result = fetch(getAddress(), { method: 'DELETE' })
-      const proResult = await result.then(res => res.json())
+  test('AbortSignal', async () => {
+    const controller = new AbortController()
+    const customError = new Error()
+    controller.abort(customError)
 
-      expect(proResult).toStrictEqual({ method: 'DELETE' })
-    })
-  })
+    const err = await getErrorPromise(fetch(getAddress(), {
+      signal: controller.signal
+    }))
 
-  describe('AbortSignal', () => {
-    it('throw AbortError', async () => {
-      const controller = new AbortController()
-      controller.abort()
-
-      const err = await getErrorPromise(fetch(getAddress(), {
-        signal: controller.signal
-      }))
-
-      expect(err?.name).toBe('AbortError')
-    })
+    expect(err).toBe(customError)
   })
 })

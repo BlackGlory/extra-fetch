@@ -1,3 +1,3 @@
-import { Headers as HeadersNode } from 'node-fetch'
+import { Headers as undiciHeaders } from 'undici'
 
-export const Headers = HeadersNode as typeof globalThis.Headers
+export const Headers = undiciHeaders as typeof globalThis.Headers

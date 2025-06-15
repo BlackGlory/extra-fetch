@@ -1,3 +1,3 @@
-import { Request as RequestNode } from 'node-fetch'
+import { Request as undiciRequest } from 'undici'
 
-export const Request = RequestNode as any as typeof globalThis.Request
+export const Request = undiciRequest as unknown as typeof globalThis.Request

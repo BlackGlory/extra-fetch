@@ -1,3 +1,3 @@
-import { Response as ResponseNode } from 'node-fetch'
+import { Response as undiciResponse } from 'undici'
 
-export const Response = ResponseNode as any as typeof globalThis.Response
+export const Response = undiciResponse as unknown as typeof globalThis.Response

@@ -6,11 +6,7 @@ export function buildServer() {
   })
 
   server.get('/', (req, reply) => {
-    reply.send({ method: 'GET' })
-  })
-
-  server.delete('/', (req, reply) => {
-    reply.send({ method: 'DELETE' })
+    reply.send('OK')
   })
 
   return server

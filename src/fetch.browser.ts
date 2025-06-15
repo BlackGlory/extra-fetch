@@ -1,1 +1,1 @@
-export const fetch = globalThis.fetch.bind(globalThis)
+export const fetch = globalThis.fetch

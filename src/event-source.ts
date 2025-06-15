@@ -1,3 +1,3 @@
-import nodeEventSource from 'eventsource'
+import { EventSource as nodeEventSource } from 'eventsource'
 
-export const EventSource = nodeEventSource as any as typeof globalThis.EventSource
+export const EventSource = nodeEventSource as typeof globalThis.EventSource
