@@ -46,7 +46,6 @@
     "@eslint/js": "^9.29.0",
     "@types/eventsource": "^3.0.0",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "22",
     "cross-env": "^7.0.3",
     "eslint": "^9.29.0",
     "extra-filesystem": "^0.5.2",
