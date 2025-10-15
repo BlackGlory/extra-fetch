@@ -5,7 +5,7 @@ import {
 , Request as UndiciRequest
 , Agent
 } from 'undici'
-import { LEVEL } from '@utils/env.js'
+import { LOG, HTTP2 } from '@utils/env.js'
 import { getErrorResultPromise } from 'return-style'
 import { Logger, TerminalTransport } from 'extra-logger'
 import { fromPairs } from 'lodash-es'
@@ -14,10 +14,12 @@ import { lazy } from 'extra-lazy'
 import { toArray } from '@blackglory/prelude'
 
 const getLogger = lazy(() => new Logger({
-  level: LEVEL()
+  level: LOG()
 , transport: new TerminalTransport({})
 }))
-const getAgent = lazy(() => new Agent({ allowH2: true }))
+const getAgent = lazy(() => new Agent({
+  allowH2: HTTP2()
+}))
 
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
   const logger = getLogger()
