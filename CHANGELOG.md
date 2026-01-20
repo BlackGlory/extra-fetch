@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/BlackGlory/extra-fetch/compare/v5.1.0...v5.2.0) (2026-01-20)
+
+
+### Features
+
+* **undici:** disable `headersTimeout` and `bodyTimeout` ([be91135](https://github.com/BlackGlory/extra-fetch/commit/be91135035f58e9254174083c438856efdfdc658))
+
 ## [5.1.0](https://github.com/BlackGlory/extra-fetch/compare/v5.0.1...v5.1.0) (2025-10-15)
 
 
