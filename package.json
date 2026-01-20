@@ -73,7 +73,7 @@
     "justypes": "^4.4.1",
     "lodash-es": "^4.17.21",
     "return-style": "^3.0.1",
-    "undici": "^7.10.0",
+    "undici": "^7.18.2",
     "value-getter": "^0.3.3"
   }
 }

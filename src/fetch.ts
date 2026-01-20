@@ -15,10 +15,12 @@ import { toArray } from '@blackglory/prelude'
 
 const getLogger = lazy(() => new Logger({
   level: LOG()
-, transport: new TerminalTransport({})
+, transport: new TerminalTransport()
 }))
 const getAgent = lazy(() => new Agent({
   allowH2: HTTP2()
+, headersTimeout: 0
+, bodyTimeout: 0
 }))
 
 export async function fetch(input: RequestInfo, init?: RequestInit): Promise<Response> {
